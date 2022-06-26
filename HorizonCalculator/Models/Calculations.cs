@@ -4,6 +4,8 @@ namespace HorizonCalculator.Models;
 
 public class Calculations
 {
+    private int _earthRadiusInKm = 6371;
+
     [JsonPropertyName("observerHeight")]
     public int ObserverHeight { get; set; }
 
@@ -12,4 +14,8 @@ public class Calculations
 
     [JsonPropertyName("observerObjectDistance")]
     public int ObserverObjectDistance { get; set; }
-}
+
+    public int ObserverVerticalDrop
+    {
+        get{ return (ObserverHeight * _earthRadiusInKm) / (ObserverHeight + _earthRadiusInKm); }
+    }
