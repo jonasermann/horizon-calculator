@@ -1,8 +1,15 @@
+using System.Text.Json.Serialization;
+
 namespace HorizonCalculator.Models;
 
 public class Calculations
 {
-    public string? RequestId { get; set; }
+    [JsonPropertyName("observerHeight")]
+    public int ObserverHeight { get; set; }
 
-    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+    [JsonPropertyName("objectHeight")]
+    public int ObjectHeight { get; set; }
+
+    [JsonPropertyName("observerObjectDistance")]
+    public int ObserverObjectDistance { get; set; }
 }
