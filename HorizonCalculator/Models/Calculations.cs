@@ -19,3 +19,4 @@ public class Calculations
     {
         get{ return (ObserverHeight * _earthRadiusInKm) / (ObserverHeight + _earthRadiusInKm); }
     }
+}
