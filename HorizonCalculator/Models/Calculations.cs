@@ -26,12 +26,12 @@ public class Calculations
         get { return GetObserverHorizontalDrop(Radius, ObserverHeight, ObserverVerticalDrop); }
     }
 
-    public double GetObserverVerticalDrop(double radius, double observerHeight)
+    public static double GetObserverVerticalDrop(double radius, double observerHeight)
     {
-        return observerHeight * radius / (ObserverHeight + radius);
+        return observerHeight * radius / (observerHeight + radius);
     }
 
-    public double GetObserverHorizontalDrop(double radius, double observerHeight, double observerVerticalDrop)
+    public static double GetObserverHorizontalDrop(double radius, double observerHeight, double observerVerticalDrop)
     {
         return observerVerticalDrop * Math.Sqrt(1 + (2 * radius / observerHeight));
     }
