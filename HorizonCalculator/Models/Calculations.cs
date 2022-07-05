@@ -63,6 +63,6 @@ public class Calculations
 
     public static double GetHorizonGeographicalDistance(double radius, double observerObjectAngle)
     {
-        return 2 * radius * Math.PI * observerObjectAngle / 360;
+        return radius * observerObjectAngle;
     }
 }
