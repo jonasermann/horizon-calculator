@@ -66,4 +66,20 @@ public class HorizonCalculatorTests
         //Assert
         result.Should().Be(observerObjectAngle);
     }
+
+
+    [Fact]
+    public void GetHorizonGeographicalDistance_works()
+    {
+        //Arrange
+        var earthRadius = 6371;
+        var observerObjectAngle = 0.0007923665553635612;
+        var horizonGeographicalDistance = 5.048167324221248;
+
+        //Act
+        var result = GetHorizonGeographicalDistance(earthRadius, observerObjectAngle);
+
+        //Assert
+        result.Should().Be(horizonGeographicalDistance);
+    }
 }
