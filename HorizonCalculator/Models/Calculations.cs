@@ -13,8 +13,8 @@ public class Calculations
     [JsonPropertyName("objectHeight")]
     public double ObjectHeight { get; set; }
 
-    [JsonPropertyName("observerObjectDistance")]
-    public double ObserverObjectDistance { get; set; }
+    [JsonPropertyName("observerObjectGeographicalDistance")]
+    public double ObserverObjectGeographicalDistance { get; set; }
 
     public double ObserverVerticalDrop
     {
@@ -33,7 +33,7 @@ public class Calculations
 
     public double ObserverObjectAngle
     {
-        get { return GetObserverObjectAngle(Radius, ObserverHorizontalDrop); }
+        get { return GetObserverAngle(Radius, ObserverHorizontalDrop); }
     }
 
     public double HorizonGeographicalDistance
@@ -56,7 +56,7 @@ public class Calculations
         return Math.Sqrt(Math.Pow(observerHeight, 2) + 2 * observerHeight * radius);
     }
 
-    public static double GetObserverObjectAngle(double radius, double observerHorizontalDrop)
+    public static double GetObserverAngle(double radius, double observerHorizontalDrop)
     {
         return Math.Asin(observerHorizontalDrop / radius);
     }

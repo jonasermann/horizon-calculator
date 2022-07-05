@@ -53,7 +53,7 @@ public class HorizonCalculatorTests
     }
 
     [Fact]
-    public void GetObserverObjectAngle_works()
+    public void GetObserverAngle_works()
     {
         //Arrange
         var earthRadius = 6371;
@@ -61,7 +61,7 @@ public class HorizonCalculatorTests
         var observerObjectAngle = 0.0007923665553635612;
 
         //Act
-        var result = GetObserverObjectAngle(earthRadius, observerHorizontalDrop);
+        var result = GetObserverAngle(earthRadius, observerHorizontalDrop);
 
         //Assert
         result.Should().Be(observerObjectAngle);
