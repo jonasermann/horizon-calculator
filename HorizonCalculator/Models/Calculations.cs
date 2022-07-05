@@ -18,17 +18,17 @@ public class Calculations
 
     public double ObserverVerticalDrop
     {
-        get { return GetObserverVerticalDrop(Radius, ObserverHeight); }
+        get { return GetObserverVerticalDrop(Radius, 1000 * ObserverHeight); }
     }
 
     public double ObserverHorizontalDrop
     {
-        get { return GetObserverHorizontalDrop(Radius, ObserverHeight, ObserverVerticalDrop); }
+        get { return GetObserverHorizontalDrop(Radius, 1000 * ObserverHeight, ObserverVerticalDrop); }
     }
 
     public double HorizonDistance
     {
-        get { return GetHorizonDistance(Radius, ObserverHeight); }
+        get { return GetHorizonDistance(Radius, 1000 * ObserverHeight); }
     }
 
     public double ObserverObjectAngle
