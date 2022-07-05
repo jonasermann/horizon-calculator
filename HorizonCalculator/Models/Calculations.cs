@@ -36,6 +36,11 @@ public class Calculations
         get { return GetObserverObjectAngle(Radius, ObserverHorizontalDrop); }
     }
 
+    public double HorizonGeographicalDistance
+    {
+        get { return GetHorizonGeographicalDistance(Radius, ObserverObjectAngle); }
+    }
+
     public static double GetObserverVerticalDrop(double radius, double observerHeight)
     {
         return observerHeight * radius / (observerHeight + radius);
@@ -54,5 +59,10 @@ public class Calculations
     public static double GetObserverObjectAngle(double radius, double observerHorizontalDrop)
     {
         return Math.Asin(observerHorizontalDrop / radius);
+    }
+
+    public static double GetHorizonGeographicalDistance(double radius, double observerObjectAngle)
+    {
+        return 2 * radius * Math.PI * observerObjectAngle / 360;
     }
 }
