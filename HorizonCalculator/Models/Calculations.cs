@@ -26,6 +26,11 @@ public class Calculations
         get { return GetObserverHorizontalDrop(Radius, ObserverHeight, ObserverVerticalDrop); }
     }
 
+    public double HorizonDistance
+    {
+        get { return GetHorizonDistance(Radius, ObserverHeight); }
+    }
+
     public static double GetObserverVerticalDrop(double radius, double observerHeight)
     {
         return observerHeight * radius / (observerHeight + radius);
@@ -34,5 +39,10 @@ public class Calculations
     public static double GetObserverHorizontalDrop(double radius, double observerHeight, double observerVerticalDrop)
     {
         return observerVerticalDrop * Math.Sqrt(1 + (2 * radius / observerHeight));
+    }
+
+    public static double GetHorizonDistance(double radius, double observerHeight)
+    {
+        return Math.Sqrt(Math.Pow(observerHeight, 2) + 2 * observerHeight * radius);
     }
 }
