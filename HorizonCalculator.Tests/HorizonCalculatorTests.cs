@@ -20,4 +20,20 @@ public class HorizonCalculatorTests
         //Assert
         result.Should().Be(observerVerticalDrop);
     }
+
+    [Fact]
+    public void GetObserverHorizontalDrop_works()
+    {
+        //Arrange
+        var earthRadius = 6371;
+        var observerHeight = 0.002;
+        var observerVerticalDrop = 0.0019999993721552746;
+        var observerHorizontalDrop = 5.048166795977033;
+
+        //Act
+        var result = GetObserverHorizontalDrop(earthRadius, observerHeight, observerVerticalDrop);
+
+        //Assert
+        result.Should().Be(observerHorizontalDrop);
+    }
 }
