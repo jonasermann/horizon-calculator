@@ -36,4 +36,19 @@ public class HorizonCalculatorTests
         //Assert
         result.Should().Be(observerHorizontalDrop);
     }
+
+    [Fact]
+    public void GetHorizonDIstance_works()
+    {
+        //Arrange
+        var earthRadius = 6371;
+        var observerHeight = 0.002;
+        var horizonDistance = 5.048168380709978;
+
+        //Act
+        var result = GetHorizonDistance(earthRadius, observerHeight);
+
+        //Assert
+        result.Should().Be(horizonDistance);
+    }
 }
