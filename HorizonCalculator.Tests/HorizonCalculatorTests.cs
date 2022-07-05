@@ -57,13 +57,13 @@ public class HorizonCalculatorTests
     {
         //Arrange
         var earthRadius = 6371;
-        var observerVerticalDrop = 0.0019999993721552746;
-        var observerHorizontalDrop = 3.1392236260481984E-07;
+        var observerHorizontalDrop = 5.048166795977033;
+        var observerObjectAngle = 0.0007923665553635612;
 
         //Act
-        var result = GetObserverObjectAngle(earthRadius, observerVerticalDrop);
+        var result = GetObserverObjectAngle(earthRadius, observerHorizontalDrop);
 
         //Assert
-        result.Should().Be(observerHorizontalDrop);
+        result.Should().Be(observerObjectAngle);
     }
 }
