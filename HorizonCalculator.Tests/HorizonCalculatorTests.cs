@@ -38,7 +38,7 @@ public class HorizonCalculatorTests
     }
 
     [Fact]
-    public void GetHorizonDIstance_works()
+    public void GetHorizonDistance_works()
     {
         //Arrange
         var earthRadius = 6371;
@@ -50,5 +50,20 @@ public class HorizonCalculatorTests
 
         //Assert
         result.Should().Be(horizonDistance);
+    }
+
+    [Fact]
+    public void GetObserverObjectAngle_works()
+    {
+        //Arrange
+        var earthRadius = 6371;
+        var observerVerticalDrop = 0.0019999993721552746;
+        var observerHorizontalDrop = 3.1392236260481984E-07;
+
+        //Act
+        var result = GetObserverObjectAngle(earthRadius, observerVerticalDrop);
+
+        //Assert
+        result.Should().Be(observerHorizontalDrop);
     }
 }
