@@ -17,14 +17,28 @@ public class Calculations
         get { return GetVerticalDrop(Radius, 1000 * ObserverHeight); }
     }
 
+    public double ObjectVerticalDrop
+    {
+        get { return GetVerticalDrop(Radius, 1000 * ObjectHeight); }
+    }
+
     public double ObserverHorizontalDrop
     {
         get { return GetHorizontalDrop(Radius, 1000 * ObserverHeight, ObserverVerticalDrop); }
     }
+    public double ObjectHorizontalDrop
+    {
+        get { return GetHorizontalDrop(Radius, 1000 * ObjectHeight, ObserverVerticalDrop); }
+    }
 
-    public double HorizonDistance
+    public double ObserverHorizonDistance
     {
         get { return GetHorizonDistance(Radius, 1000 * ObserverHeight); }
+    }
+
+    public double ObjectHorizonDistance
+    {
+        get { return GetHorizonDistance(Radius, 1000 * ObjectHeight); }
     }
 
     public double ObserverAngle
@@ -32,9 +46,19 @@ public class Calculations
         get { return GetAngle(Radius, ObserverHorizontalDrop); }
     }
 
-    public double HorizonGeographicalDistance
+    public double ObjectAngle
+    {
+        get { return GetAngle(Radius, ObjectHorizontalDrop); }
+    }
+
+    public double ObserverHorizonGeographicalDistance
     {
         get { return GetHorizonGeographicalDistance(Radius, ObserverAngle); }
+    }
+
+    public double ObjectHorizonGeographicalDistance
+    {
+        get { return GetHorizonGeographicalDistance(Radius, ObjectAngle); }
     }
 
     public static double GetVerticalDrop(double radius, double observerHeight)
