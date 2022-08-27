@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model HorizonCalculator.Models.Calculations;
+
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -8,15 +10,17 @@
     </head>
 
     <body>
-        <form>
+        <form action="/Home" method="post">
             <label>Observer Height (m)</label>
-            <input type="number" />
+            <input type="number" name="ObserverHeight" />
 
             <label>Object Height (m)</label>
-            <input type="number" />
+            <input type="number" name="ObjectHeight" />
 
             <label>Observer Object Distance (km)</label>
-            <input type="number" />
+            <input type="number" name="ObserverObjectGeographicalDistance" />
+
+            <button type="submit">Calculate</button>
         </form>
     </body>
 </html>
