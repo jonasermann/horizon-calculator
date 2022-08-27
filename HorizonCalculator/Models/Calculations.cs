@@ -27,14 +27,14 @@ public class Calculations
         get { return GetHorizonDistance(Radius, 1000 * ObserverHeight); }
     }
 
-    public double ObserverObjectAngle
+    public double ObserverAngle
     {
         get { return GetObserverAngle(Radius, ObserverHorizontalDrop); }
     }
 
     public double HorizonGeographicalDistance
     {
-        get { return GetHorizonGeographicalDistance(Radius, ObserverObjectAngle); }
+        get { return GetHorizonGeographicalDistance(Radius, ObserverAngle); }
     }
 
     public static double GetObserverVerticalDrop(double radius, double observerHeight)
