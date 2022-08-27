@@ -76,7 +76,7 @@ public class Calculations
         return (radius * verticalDrop) / (radius - verticalDrop);
     }
 
-    public double HorizonGeopgraphicalDistanceDifference => GetHeightReversed(
+    public double ReducedHeight => GetHeightReversed(
         Radius, GetVerticalDropReversed(
             Radius, GetHorizontalDropReversed(
                 Radius, GetAngleReversed(
