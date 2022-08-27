@@ -4,16 +4,12 @@ namespace HorizonCalculator.Models;
 
 public class Calculations
 {
-    [JsonPropertyName("radius")]
     public double Radius { get; set; }
 
-    [JsonPropertyName("observerHeight")]
     public double ObserverHeight { get; set; }
 
-    [JsonPropertyName("objectHeight")]
     public double ObjectHeight { get; set; }
 
-    [JsonPropertyName("observerObjectGeographicalDistance")]
     public double ObserverObjectGeographicalDistance { get; set; }
 
     public double ObserverVerticalDrop
