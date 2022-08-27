@@ -6,11 +6,14 @@ public class Calculations
 {
     public double Radius { get; set; }
 
+    public double ObserverHeight { get; set; }
+
+    public double ObjectHeight { get; set; }
+
     public double ObserverObjectGeographicalDistance { get; set; }
 
 
 
-    public double ObserverHeight { get; set; }
 
     public double ObserverVerticalDrop => GetVerticalDrop(Radius, ObserverHeight); 
 
@@ -19,20 +22,6 @@ public class Calculations
     public double ObserverAngle => GetAngle(Radius, ObserverHorizontalDrop);
 
     public double ObserverHorizonGeographicalDistance => GetHorizonGeographicalDistance(Radius, ObserverAngle);
-
-
-
-    public double ObjectHeight { get; set; }
-
-    public double ObjectVerticalDrop => GetVerticalDrop(Radius, ObjectHeight);
-
-    public double ObjectHorizontalDrop => GetHorizontalDrop(Radius, ObjectHeight, ObjectVerticalDrop);
-
-    public double ObjectAngle => GetAngle(Radius, ObjectHorizontalDrop);
-
-    public double ObjectHorizonGeographicalDistance => GetHorizonGeographicalDistance(Radius, ObjectAngle);
-
-
 
     public static double GetVerticalDrop(double radius, double height)
     {
@@ -56,29 +45,31 @@ public class Calculations
 
 
 
-    public static double GetAngleReversed(double radius, double horizonGeographicalDistance)
+    public double ReducedObjectHeight => GetHeightFromVerticalDrop(
+        Radius, GetVerticalDropFromHorizontalDrop(
+            Radius, GetHorizontalDropFromAngle(
+                Radius, GetAngleFromHorizonGeographicalDistance(
+                    Radius, ObserverObjectGeographicalDistance - ObserverHorizonGeographicalDistance))));
+
+    public double VisibleObjectHeight => ObjectHeight - ReducedObjectHeight;
+
+    public static double GetAngleFromHorizonGeographicalDistance(double radius, double horizonGeographicalDistance)
     {
         return horizonGeographicalDistance / radius;
     }
 
-    public static double GetHorizontalDropReversed(double radius, double angle)
+    public static double GetHorizontalDropFromAngle(double radius, double angle)
     {
         return Math.Sin(angle) * radius;
     }
 
-    public static double GetVerticalDropReversed(double radius, double horizontalDrop)
+    public static double GetVerticalDropFromHorizontalDrop(double radius, double horizontalDrop)
     {
         return radius - Math.Sqrt(Math.Pow(radius, 2) - Math.Pow(horizontalDrop, 2));
     }
 
-    public static double GetHeightReversed(double radius, double verticalDrop)
+    public static double GetHeightFromVerticalDrop(double radius, double verticalDrop)
     {
         return (radius * verticalDrop) / (radius - verticalDrop);
     }
-
-    public double ReducedHeight => GetHeightReversed(
-        Radius, GetVerticalDropReversed(
-            Radius, GetHorizontalDropReversed(
-                Radius, GetAngleReversed(
-                    Radius, ObserverObjectGeographicalDistance - ObserverHorizonGeographicalDistance))));
 }
