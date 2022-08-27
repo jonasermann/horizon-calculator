@@ -14,12 +14,12 @@ public class Calculations
 
     public double ObserverVerticalDrop
     {
-        get { return GetObserverVerticalDrop(Radius, 1000 * ObserverHeight); }
+        get { return GetVerticalDrop(Radius, 1000 * ObserverHeight); }
     }
 
     public double ObserverHorizontalDrop
     {
-        get { return GetObserverHorizontalDrop(Radius, 1000 * ObserverHeight, ObserverVerticalDrop); }
+        get { return GetHorizontalDrop(Radius, 1000 * ObserverHeight, ObserverVerticalDrop); }
     }
 
     public double HorizonDistance
@@ -29,7 +29,7 @@ public class Calculations
 
     public double ObserverAngle
     {
-        get { return GetObserverAngle(Radius, ObserverHorizontalDrop); }
+        get { return GetAngle(Radius, ObserverHorizontalDrop); }
     }
 
     public double HorizonGeographicalDistance
@@ -37,12 +37,12 @@ public class Calculations
         get { return GetHorizonGeographicalDistance(Radius, ObserverAngle); }
     }
 
-    public static double GetObserverVerticalDrop(double radius, double observerHeight)
+    public static double GetVerticalDrop(double radius, double observerHeight)
     {
         return observerHeight * radius / (observerHeight + radius);
     }
 
-    public static double GetObserverHorizontalDrop(double radius, double observerHeight, double observerVerticalDrop)
+    public static double GetHorizontalDrop(double radius, double observerHeight, double observerVerticalDrop)
     {
         return observerVerticalDrop * Math.Sqrt(1 + (2 * radius / observerHeight));
     }
@@ -52,7 +52,7 @@ public class Calculations
         return Math.Sqrt(Math.Pow(observerHeight, 2) + 2 * observerHeight * radius);
     }
 
-    public static double GetObserverAngle(double radius, double observerHorizontalDrop)
+    public static double GetAngle(double radius, double observerHorizontalDrop)
     {
         return Math.Asin(observerHorizontalDrop / radius);
     }
