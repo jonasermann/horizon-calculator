@@ -10,6 +10,7 @@
     </head>
 
     <body>
+
         <img src="~/EarthVision.png" alt="Illustration Of Non-Refracted Vision On Earth" />
 
         <form action="/Calculations" method="post">
@@ -24,7 +25,7 @@
             <input type="number" name="ObserverObjectGeographicalDistance" value=@Model.ObserverObjectGeographicalDistance />
 
             <button type="submit">Calculate</button>
-            
+
         </form>
 
         @if(Model.ObserverHeight > 0)
@@ -46,5 +47,6 @@
         {
             <p>Object is no longer visible</p>
         }
+
     </body>
 </html>
