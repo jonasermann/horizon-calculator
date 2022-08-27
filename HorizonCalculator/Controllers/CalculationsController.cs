@@ -9,8 +9,8 @@ public class CalculationsController : Controller
     public ActionResult<Calculations> Index(double ObserverHeight, double ObjectHeight, double ObserverObjectGeographicalDistance) => View(new Calculations
     {
         Radius = 6371,
-        ObserverHeight = ObserverHeight / 1000,
-        ObjectHeight = ObjectHeight / 1000,
+        ObserverHeight = ObserverHeight,
+        ObjectHeight = ObjectHeight,
         ObserverObjectGeographicalDistance = ObserverObjectGeographicalDistance
     });
 }

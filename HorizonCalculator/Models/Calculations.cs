@@ -1,5 +1,3 @@
-using System.Text.Json.Serialization;
-
 namespace HorizonCalculator.Models;
 
 public class Calculations
@@ -14,14 +12,28 @@ public class Calculations
 
 
 
+    public double ObserverHeightInKm => ObserverHeight / 1000;
 
-    public double ObserverVerticalDrop => GetVerticalDrop(Radius, ObserverHeight); 
+    public double ObjectHeightInKm => ObjectHeight / 1000;
 
-    public double ObserverHorizontalDrop => GetHorizontalDrop(Radius, ObserverHeight, ObserverVerticalDrop);
+    public double ObserverVerticalDrop => GetVerticalDrop(Radius, ObserverHeightInKm); 
+
+    public double ObserverHorizontalDrop => GetHorizontalDrop(Radius, ObserverHeightInKm, ObserverVerticalDrop);
 
     public double ObserverAngle => GetAngle(Radius, ObserverHorizontalDrop);
 
     public double ObserverHorizonGeographicalDistance => GetHorizonGeographicalDistance(Radius, ObserverAngle);
+
+    public double ReducedObjectHeight => GetHeightFromVerticalDrop(
+        Radius, GetVerticalDropFromHorizontalDrop(
+            Radius, GetHorizontalDropFromAngle(
+                Radius, GetAngleFromHorizonGeographicalDistance(
+                    Radius, ObserverObjectGeographicalDistance - ObserverHorizonGeographicalDistance))));
+
+    public double VisibleObjectHeight => (ObjectHeightInKm - ReducedObjectHeight) * 1000;
+
+
+
 
     public static double GetVerticalDrop(double radius, double height)
     {
@@ -42,16 +54,6 @@ public class Calculations
     {
         return radius * angle;
     }
-
-
-
-    public double ReducedObjectHeight => GetHeightFromVerticalDrop(
-        Radius, GetVerticalDropFromHorizontalDrop(
-            Radius, GetHorizontalDropFromAngle(
-                Radius, GetAngleFromHorizonGeographicalDistance(
-                    Radius, ObserverObjectGeographicalDistance - ObserverHorizonGeographicalDistance))));
-
-    public double VisibleObjectHeight => ObjectHeight - ReducedObjectHeight;
 
     public static double GetAngleFromHorizonGeographicalDistance(double radius, double horizonGeographicalDistance)
     {

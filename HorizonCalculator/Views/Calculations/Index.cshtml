@@ -13,16 +13,38 @@
         <img src="~/EarthVision.png" alt="Illustration Of Non-Refracted Vision On Earth" />
 
         <form action="/Calculations" method="post">
+
             <label>Observer Height (m)</label>
-            <input type="number" name="ObserverHeight" />
+            <input type="number" name="ObserverHeight" value=@Model.ObserverHeight />
 
             <label>Object Height (m)</label>
-            <input type="number" name="ObjectHeight" />
+            <input type="number" name="ObjectHeight" value=@Model.ObjectHeight />
 
-            <label>Observer Object Distance (km)</label>
-            <input type="number" name="ObserverObjectGeographicalDistance" />
+            <label>Distance Between Observer and Object (km)</label>
+            <input type="number" name="ObserverObjectGeographicalDistance" value=@Model.ObserverObjectGeographicalDistance />
 
             <button type="submit">Calculate</button>
+            
         </form>
+
+        @if(Model.ObserverHeight > 0)
+        {
+            <p>With a height of @Model.ObserverHeight m above sea level, the horizon is @Model.ObserverHorizonGeographicalDistance km far away.</p>
+        }
+
+        @if(Model.ObserverHorizonGeographicalDistance >= Model.ObserverObjectGeographicalDistance && Model.ObjectHeight > 0)
+        {
+            <p>The Object is fully visible</p>
+        }
+
+        @if(Model.ObserverHorizonGeographicalDistance < Model.ObserverObjectGeographicalDistance && Model.VisibleObjectHeight > 0)
+        {
+            <p>Only the top @Model.VisibleObjectHeight of the Object are visible</p>
+        }
+
+        @if (Model.VisibleObjectHeight < 0 && Model.ObjectHeight > 0)
+        {
+            <p>Object is no longer visible</p>
+        }
     </body>
 </html>
