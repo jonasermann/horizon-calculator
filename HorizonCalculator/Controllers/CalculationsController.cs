@@ -4,7 +4,7 @@ using HorizonCalculator.Models;
 
 namespace HorizonCalculator.Controllers;
 
-public class HomeController : Controller
+public class CalculationsController : Controller
 {
     public ActionResult<Calculations> Index(double ObserverHeight, double ObjectHeight, double ObserverObjectGeographicalDistance) => View(new Calculations
     {
