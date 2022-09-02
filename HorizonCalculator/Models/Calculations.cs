@@ -22,7 +22,7 @@ public class Calculations
 
     public double ObserverAngle => GetAngle(Radius, ObserverHorizontalDrop);
 
-    public double ObserverHorizonGeographicalDistance => GetHorizonGeographicalDistance(Radius, ObserverAngle);
+    public double ObserverHorizonGeographicalDistance => Math.Round(GetHorizonGeographicalDistance(Radius, ObserverAngle), 2);
 
     public double ReducedObjectHeight => GetHeightFromVerticalDrop(
         Radius, GetVerticalDropFromHorizontalDrop(
@@ -30,7 +30,7 @@ public class Calculations
                 Radius, GetAngleFromHorizonGeographicalDistance(
                     Radius, ObserverObjectGeographicalDistance - ObserverHorizonGeographicalDistance))));
 
-    public double VisibleObjectHeight => (ObjectHeightInKm - ReducedObjectHeight) * 1000;
+    public double VisibleObjectHeight => Math.Round((ObjectHeightInKm - ReducedObjectHeight) * 1000, 2);
 
 
 

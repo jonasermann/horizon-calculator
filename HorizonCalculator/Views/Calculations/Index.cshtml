@@ -9,20 +9,28 @@
         <link rel="stylesheet" href="~/css/site.css" />
     </head>
 
-    <body>
-
+    <body align="center">
+        <style>
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        </style>
         <img src="~/EarthVision.png" alt="Illustration Of Non-Refracted Vision On Earth" />
 
-        <form action="/Calculations" method="post">
+        <form vertical-align="middle" action="/Calculations" method="post">
 
             <label>Observer Height (m)</label>
             <input type="number" name="ObserverHeight" value=@Model.ObserverHeight />
+            <br />
 
             <label>Object Height (m)</label>
             <input type="number" name="ObjectHeight" value=@Model.ObjectHeight />
+            <br />
 
             <label>Distance Between Observer and Object (km)</label>
             <input type="number" name="ObserverObjectGeographicalDistance" value=@Model.ObserverObjectGeographicalDistance />
+            <br />
 
             <button type="submit">Calculate</button>
 
@@ -30,22 +38,22 @@
 
         @if(Model.ObserverHeight > 0)
         {
-            <p>With a height of @Model.ObserverHeight m above sea level, the horizon is @Model.ObserverHorizonGeographicalDistance km far away.</p>
+        <p>With a height of @Model.ObserverHeight m above sea level, the horizon is @Model.ObserverHorizonGeographicalDistance km far away.</p>
         }
 
         @if(Model.ObserverHorizonGeographicalDistance >= Model.ObserverObjectGeographicalDistance && Model.ObjectHeight > 0)
         {
-            <p>The Object is fully visible</p>
+        <p>The Object is fully visible</p>
         }
 
         @if(Model.ObserverHorizonGeographicalDistance < Model.ObserverObjectGeographicalDistance && Model.VisibleObjectHeight > 0)
         {
-            <p>Only the top @Model.VisibleObjectHeight of the Object are visible</p>
+        <p>Only the top @Model.VisibleObjectHeight meters of the Object are visible</p>
         }
 
-        @if (Model.VisibleObjectHeight < 0 && Model.ObjectHeight > 0)
+        @if (Model.VisibleObjectHeight < 0 && Model.ObjectHeight > 0 && Model.ObserverHeight < Model.ObjectHeight)
         {
-            <p>Object is no longer visible</p>
+        <p>Object is no longer visible</p>
         }
 
     </body>
