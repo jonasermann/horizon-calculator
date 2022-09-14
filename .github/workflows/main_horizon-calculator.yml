@@ -8,6 +8,7 @@ on:
     branches:
       - main
     paths:
+      - '.github/workflows/**'
       - 'HorizonCalculator/**'
   workflow_dispatch:
 
@@ -25,16 +26,16 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: dotnet build HorizonCalculator --configuration Release
+        run: dotnet build HorizonCalculator.csproj --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish HorizonCalculator -c Release -o ${{env.DOTNET_ROOT}}/myapp/HorizonCalculator
+        run: dotnet publish HorizonCalculator.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp/HorizonCalculator
+          path: ${{env.DOTNET_ROOT}}/myapp
 
   deploy:
     runs-on: windows-latest
