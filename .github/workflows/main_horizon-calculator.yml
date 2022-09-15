@@ -26,10 +26,10 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: dotnet build HorizonCalculator --configuration Release
+        run: dotnet build -p HorizonCalculator/HorizonCalculator.csproj --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish HorizonCalculator -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish -p HorizonCalculator/HorizonCalculator.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2

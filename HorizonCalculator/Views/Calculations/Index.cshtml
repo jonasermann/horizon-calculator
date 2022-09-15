@@ -38,22 +38,22 @@
 
         @if(Model.ObserverHeight > 0)
         {
-        <p>With a height of @Model.ObserverHeight m above sea level, the horizon is @Model.ObserverHorizonGeographicalDistance km far away.</p>
+            <p>With a height of @Model.ObserverHeight m above sea level, the horizon is @Model.ObserverHorizonGeographicalDistance km far away.</p>
         }
 
-        @if(Model.ObserverHorizonGeographicalDistance >= Model.ObserverObjectGeographicalDistance && Model.ObjectHeight > 0)
+        @if (Model.ObserverHorizonGeographicalDistance >= Model.ObserverObjectGeographicalDistance && Model.ObserverHeight > 0)
         {
-        <p>The Object is fully visible</p>
+            <p>The Object is fully visible</p>
         }
 
-        @if(Model.ObserverHorizonGeographicalDistance < Model.ObserverObjectGeographicalDistance && Model.VisibleObjectHeight > 0)
+        @if (Model.VisibleObjectHeight > 0 && Model.ObjectHeight > 0 && Model.ObserverHeight >= 0)
         {
-        <p>Only the top @Model.VisibleObjectHeight meters of the Object are visible</p>
+            <p>Only the top @Model.VisibleObjectHeight meters of the Object are visible</p>
         }
 
-        @if (Model.VisibleObjectHeight < 0 && Model.ObjectHeight > 0 && Model.ObserverHeight < Model.ObjectHeight)
+        @if (Model.VisibleObjectHeight <= 0 && Model.ObjectHeight >= 0 && Model.ObserverHeight > 0)
         {
-        <p>Object is no longer visible</p>
+            <p>Object is no longer visible</p>
         }
 
     </body>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizonCalculator", "HorizonCalculator\HorizonCalculator.csproj", "{582A84E5-1D8F-4966-A86A-18284504F009}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizonCalculator.Tests", "HorizonCalculator.Tests\HorizonCalculator.Tests.csproj", "{0E40DB83-E75A-4CB6-8595-2028047DB52E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{582A84E5-1D8F-4966-A86A-18284504F009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{582A84E5-1D8F-4966-A86A-18284504F009}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{582A84E5-1D8F-4966-A86A-18284504F009}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{582A84E5-1D8F-4966-A86A-18284504F009}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E40DB83-E75A-4CB6-8595-2028047DB52E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E40DB83-E75A-4CB6-8595-2028047DB52E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E40DB83-E75A-4CB6-8595-2028047DB52E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E40DB83-E75A-4CB6-8595-2028047DB52E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
